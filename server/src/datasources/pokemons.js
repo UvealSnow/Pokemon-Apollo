@@ -40,7 +40,7 @@ class PokemonAPI extends RESTDataSource {
   pokemonReducer(pokemon) {
     return {
       id: pokemon.id || pokemon.url.split('/')[6],
-      name: pokemon.name,
+      name: pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1),
       stats: Array.isArray(pokemon.stats) ?
         pokemon.stats.map(stat => this.statsReducer(stat)) : [],
       types: Array.isArray(pokemon.types) ?
